@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Kreideleben: Startseite</title>
+<link rel="stylesheet" type="text/css" href="katex/katex.min.css">
 </head>
 <body>
 <h3><a href="index.html">Home</a> - <a href="impressum.html">Impressum</a></h3>
@@ -47,5 +48,15 @@
   </mfrac>
 </mrow>
 </math>
+<p>Unterst&uuml;tzt dein Webbbrowser KateX? Falls ja, siehst du unten stehend eine mathematische Formel.</p>
+<div id="katex-container"></div>
+<script type="text/javascript" src="katex/katex.min.js"></script>
+<script>
+var katexContainer = document.getElementById('katex-container');
+katex.render(
+    "x = \\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}",
+    katexContainer
+);
+</script>
 </body>
 </html>
