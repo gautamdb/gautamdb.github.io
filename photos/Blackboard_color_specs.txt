@@ -1,0 +1,4 @@
+Colors in RGB, decimal
+Green background: 66/112/56
+Brown edge: 146/90/61 (with black border)
+Chalk color (Buntstift): 216/216/216
