@@ -7,3 +7,5 @@ Phone: (Germany) 7th prime, squared, minus 6, times 700, minus 1, times 100, plu
 Telegram/Reddit/Discord/Github: my first name + db
 
 I can also be found on ORCID
+
+Here is my [public CV](https://gautamdb.github.io/docs/publicCV.pdf).
