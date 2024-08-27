@@ -9,3 +9,5 @@ Telegram/Reddit/Discord/Github: my first name + db
 I can also be found on ORCID
 
 Here is my [public CV](https://gautamdb.github.io/docs/publicCV.pdf).
+
+I've also got a [blog](https://gautamdb.github.io/blog) which I will update whenever I've got anything worth saying.
