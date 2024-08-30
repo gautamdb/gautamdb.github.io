@@ -21,6 +21,8 @@ The milk had separated into cream, which was at the top of the bottle, and stuff
 The stuff below consisted of slightly chunky pieces in the white fluid. It tasted a little like yoghurt. I put this in a bowl, and left it in the fridge, thinking it will become yoghurt.
 
 When I checked two days later, it had separated into a white-yellowish liquid, which I think is whey, and white, more solid stuff. 
-I separated the fluid from the solid as best as I could, drank some of the whey (it tastes of almost nothing, and is supposed to be quite healthy), and compressed the solid stuff in a cloth. I think this is how cheese or cottage cheese is made.
+I separated the fluid from the solid as best as I could (see here: [1](separating_1.jpg) [2](separating_2.jpg) [3](separated.jpg)), drank some of the whey (it tastes of almost nothing, and is supposed to be quite healthy), and filtered the solid stuff with a cloth (see here: [1](filtering_1.jpg) [2](filtering_2.jpg) [3](filtered.jpg)).
 
-I have now put the solid stuff, which is wrapped in a cloth, between two plates, and put a weight on it. Letting it be like that for 5 hours, and checking on it after that!
+I think this is how cheese or cottage cheese is made.
+
+I have now put the solid stuff, which is wrapped in a cloth, between two plates, and put a weight on it to compress it ((see here: [1](compressing_1) [2](compressing_2.jpg)). Letting it be like that for 5 hours, and checking on it after that!
