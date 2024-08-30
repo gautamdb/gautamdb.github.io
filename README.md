@@ -10,4 +10,4 @@ I can also be found on ORCID
 
 Here is my [public CV](docs/publicCV.pdf).
 
-I've also got a [blog](https://gautamdb.github.io/blog) which I will update whenever I've got anything worth saying.
+I've also got a [blog](blog) which I will update whenever I've got anything worth saying.
