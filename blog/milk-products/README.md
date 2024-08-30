@@ -26,3 +26,5 @@ I separated the fluid from the solid as best as I could (see here: [1](separatin
 I think this is how cheese or cottage cheese is made.
 
 I have now put the solid stuff, which is wrapped in a cloth, between two plates, and put a weight on it to compress it (see here: [1](compressing_1.jpg) [2](compressing_2.jpg)). Leaving it like that for 5 hours, and checking on it after that!
+
+[Result](dried_cheeselike_thing.JPG)
