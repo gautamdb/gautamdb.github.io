@@ -1,6 +1,6 @@
 # Milk products
 ## Friday, 30th of August, 2024
-A while ago, I decided to start getting fresh, unprocessed milk for daily consumption. Why? Because all milk we get from supermarkets is processed: It is heated to high temperatures, filtered, etc. etc. And the tast is just not the same.
+A while ago, I decided to start getting fresh, unprocessed milk for daily consumption. Why? Because all milk we get from supermarkets is processed: It is heated to high temperatures, filtered, etc. etc. And the taste is just not the same.
 
 So for a while now, I've made it a habit to get milk from the nearest farm which sells it. The price is usually 1 Euro/Liter in any given farm.
 
@@ -25,4 +25,4 @@ I separated the fluid from the solid as best as I could (see here: [1](separatin
 
 I think this is how cheese or cottage cheese is made.
 
-I have now put the solid stuff, which is wrapped in a cloth, between two plates, and put a weight on it to compress it ((see here: [1](compressing_1.jpg) [2](compressing_2.jpg)). Letting it be like that for 5 hours, and checking on it after that!
+I have now put the solid stuff, which is wrapped in a cloth, between two plates, and put a weight on it to compress it (see here: [1](compressing_1.jpg) [2](compressing_2.jpg)). Leaving it like that for 5 hours, and checking on it after that!
