@@ -6,7 +6,7 @@ Phone: (Germany) 7th prime, squared, minus 6, times 700, minus 1, times 100, plu
 
 Telegram/Reddit/Discord/Github: my first name + db
 
-I can also be found on ORCID
+I can also be found on [ORCID](https://orcid.org/0000-0002-8668-310X).
 
 Here is my [public CV](docs/publicCV.pdf).
 
