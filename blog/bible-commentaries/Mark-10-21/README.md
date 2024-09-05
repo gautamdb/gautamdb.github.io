@@ -6,7 +6,7 @@ The man who came to Jesus is seeking the eternal life. And he is asking Jesus wh
 
 A few verses earlier, Jesus alludes to this fact by saying that "No one is good except God alone." In my opinion, He does not mean that there is no good in people, but rather that there is always some bad in people which they are not able to get rid of, and so God alone is entirely good.
 
-But nevertheless, Jesus gives a straight answer to the direct question, and tells the man what is in theory necessary to get eternal life. It is, plainly, to follow commandments. The commandments of God are not there to condemn, but to actually let the people who know what God wants us to do.
+But nevertheless, Jesus gives a straight answer to the direct question, and tells the man what is in theory necessary to get eternal life. It is, plainly, to follow commandments. The commandments of God are not there to condemn, but to actually let the people know what God wants us to do.
 
 It is said that Jesus "looking at him, loved him" because He sees not only that this man seeks eternal life and knows to come to the right address, Jesus, to ask about it. In the verses before, the man states that he has followed those commands which Jesus deems important since his youth. So does this mean that the love of Jesus depends on us trying to be good people, and loves this man because he is trying to be a good person?
 
