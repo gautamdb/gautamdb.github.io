@@ -2,7 +2,7 @@
 
 »And Jesus, looking at him, loved him, and said to him, "You lack one thing: go, sell all that you have and give to the poor, and you will have treasure in heaven; and come, follow me."«
 
-The man who came to Jesus is seeking the eternal life. And he is asking Jesus what to do to get it. As many other passages in the New Testament describe, we cannot earn eternal life by our deeds, precisely because we as humans are inherently flawed. We are saved despite our failiure to be free from bad.
+The man who came to Jesus is seeking the eternal life. And he is asking Jesus what to do to get it. As many other passages in the New Testament describe, we cannot earn eternal life by our deeds, precisely because we as humans are inherently flawed. We can receive eternal life despite our failiure to be free from bad.
 
 A few verses earlier, Jesus alludes to this fact by saying that "No one is good except God alone." In my opinion, He does not mean that there is no good in people, but rather that there is always some bad in people which they are not able to get rid of, and so God alone is entirely good.
 
