@@ -10,7 +10,7 @@ But nevertheless, Jesus gives a straight answer to the direct question, and tell
 
 It is said that Jesus "looking at him, loved him" because He sees not only that this man seeks eternal life and knows to come to the right address, Jesus, to ask about it. In the verses before, the man states that he has followed those commands which Jesus deems important since his youth. So does this mean that the love of Jesus depends on us trying to be good people, and loves this man because he is trying to be a good person?
 
-That is not exactly true. See the contrast of what Jesus says earlier, that "No one is good except God alone." No, this man is not following the commandments with the main motivation that he wants to try to be a good person. He seeks God, this becomes clear by the fact that he approaches Jesus and his first question is about eternal life.
+That is not exactly true. See the contrast of what Jesus says earlier, that "No one is good except God alone." No, this man is not following the commandments with the main motivation that he wants to try to be a good person. He seeks God, this becomes clear by the fact that he approaches Jesus and his first question is about eternal life. And this is probably his main motivation to follow the commandments.
 
 The life we are given with birth is finite. We are painfully made aware of that by the presence of death. But the life with God is eternal. And God loves those who seek this eternal life. The commandments tell us what God wants us to do, and lead us into the meaning of eternal life with God. 
 
