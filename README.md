@@ -6,7 +6,7 @@ Phone: (Germany) 7th prime, squared, minus 6, times 700, minus 1, times 100, plu
 
 Telegram/Reddit/Discord/Github/Mastodon: my first name + db
 
-(Thhe gmail account and the youtube channel with "my first name + db" do NOT belong to me Maybe someone else created it, or I did and forgot the pwd, idk.)
+(The gmail account and the youtube channel with "my first name + db" do NOT belong to me Maybe someone else created it, or I did and forgot the pwd, idk.)
 
 I can also be found on [ORCID](https://orcid.org/0000-0002-8668-310X).
 
