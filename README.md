@@ -1,12 +1,10 @@
 # Gautam Dilip Banhatti
 
-Email: my first name att posteo de
+Email: gautam att posteo de
 
-Phone: (Germany) 7th prime, squared, minus 6, times 700, minus 1, times 100, plus 9, times 3, minus 1, times 3, minus 1, times 10, minus 1.
+Phone: (Germany) 1782891769
 
-Telegram/Github/Mastodon: my first name + db
-
-(The gmail account and the youtube channel with "my first name + db" do NOT belong to me. Maybe someone else created it, or I did and forgot the pwd, idk.)
+Telegram/Github/Mastodon: gautamdb
 
 I can also be found on [ORCID](https://orcid.org/0000-0002-8668-310X).
 
