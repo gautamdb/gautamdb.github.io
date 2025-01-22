@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="middle">
+  <span id="meinezeit"></span>
+</div>
+<script>
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+
+  var distance;
+  var beginningOfYear = new Date("2024-01-04T00:00:00.000+01:00").getTime();
+  distance = now - beginningOfYear;
+
+  var fingurs = Math.floor((distance % (5000 * 20 * 48 * 6)) / (5000 * 20 * 48));
+  var hects = Math.floor((distance % (5000 * 20 * 48)) / (5000 * 20));
+  var moments = Math.floor((distance % (5000 * 20)) / 5000);
+
+  //Build the output of time
+  var timeMessage = "";
+  timeMessage +="<h1>" + fingurs + ":";
+  if(hects < 10) timeMessage += "0";
+  timeMessage += hects +  ":";
+  if(moments < 10) timeMessage += "0";
+  timeMessage += moments + "</h1>";
+
+  document.getElementById("meinezeit").innerHTML = timeMessage;
+}, 1000);
+
+</script>
+</body>
+</html>
