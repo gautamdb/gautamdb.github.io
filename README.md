@@ -4,7 +4,7 @@ Email: gautam att posteo de
 
 Phone: (Germany) 1782891769
 
-Telegram/Github/Mastodon: gautamdb
+Telegram/Github: gautamdb
 
 I can also be found on [ORCID](https://orcid.org/0000-0002-8668-310X).
 
