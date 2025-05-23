@@ -17,3 +17,5 @@ I've also got a [blog](blog) which I will update whenever I've got anything wort
 [Pizza](images/pizza.png)
 
 [Math3matik](math3matik)
+
+[Upper bound for number of days I walk this earth](https://www.wolframalpha.com/input?i=%28number+of+days+until+17.12.2113%29%2F%281+day%29)
