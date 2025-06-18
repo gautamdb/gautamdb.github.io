@@ -16,7 +16,7 @@ I can also be found on [ORCID](https://orcid.org/0000-0002-8668-310X).
 
 As a student, I did some programming while working in student assistant jobs at the university. Some of these jobs produced academic publications or preprints: [This](https://ris.utwente.nl/ws/portalfiles/portal/30050558/Scheider2017exploratory.pdf) is from my work at the institute for geoinformatics in Münster, [this](https://arxiv.org/abs/1702.06309) is from my work at the institute for applied mathematics in Münster, and [this](https://jexpmath.org/index.php/jem/article/view/Vol-1Issue-1Paper-1/Vol-1Issue-1Paper-1) is from my work at the visual computing group in Heidelberg.
 
-Here my [Bachelor's thesis](https://www.mathi.uni-heidelberg.de/~geodyn/teaching/Theses/BA_2016_Gautam%20Dilip%20Banhatti%20(Albers).pdf) and here my [Master's thesis](https://www.mathi.uni-heidelberg.de/~geodyn/teaching/Theses/MA_2020_Gautam%20Dilip%20Banhatti%20(Albers).pdf).
+Here my [first Bachelor's thesis](https://www.mathi.uni-heidelberg.de/~geodyn/teaching/Theses/BA_2016_Gautam%20Dilip%20Banhatti%20(Albers).pdf), my [second Bachelor's thesis](docs/bachelorarbeitPhysik_reduced_filesize.pdf) and my [Master's thesis](https://www.mathi.uni-heidelberg.de/~geodyn/teaching/Theses/MA_2020_Gautam%20Dilip%20Banhatti%20(Albers).pdf).
 
 ## Personal stuff
 
