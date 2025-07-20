@@ -27,6 +27,7 @@ I've also got a [blog](blog) which I will update whenever I've got anything wort
 [Here](timekeeping/watchface.html) is a clock I invented. And [here](timekeeping/Kalender-Jahr-3.pdf) is a calendar I invented.
 
 [Pizza](images/pizza.png)
+[Momos](images/IMG_2636.jpeg)
 
 [Math3matik](math3matik)
 
