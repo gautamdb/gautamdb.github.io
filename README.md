@@ -31,4 +31,4 @@ I've also got a [blog](blog) which I will update whenever I've got anything wort
 
 [Math3matik](math3matik)
 
-[Upper bound for number of days I walk this earth](https://www.wolframalpha.com/input?i=%28number+of+days+until+17.12.2113%29%2F%281+day%29)
+[Upper bound](https://www.wolframalpha.com/input?i=%28number+of+days+until+17.12.2113%29%2F%281+day%29) and [lower bound](https://www.wolframalpha.com/input?i=%28number+of+days+since+17.12.1993%29%2F%281+day%29) for number of days I walk this earth
