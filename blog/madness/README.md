@@ -11,4 +11,11 @@ But Jesus, who is God became flesh, he WAS a man. (I don't say IS because in the
 
 I have dreams, I have projects in mind. I have parts of my family whom I have neglected for too long, for insufficient reasons. Not out of a sense of duty, but because I want to, I will remedy this situation in the years to come. I will reclaim angency over my life - over every aspect of it. Agency as in "the ability to take action or choose what action to take".
 
+## Wednesday, August 13, 2025
+What a stupid thing to do, putting myself out there in the internet for everyone to look up who knows my name. Do I care? No. Stupidity? It is some kind of "nothing really matters to me" attitude. What do I care if people can read my thoughts written in madness? I don't. Maybe it is my wish to emphasise one trait of character that sets me apart from the majority: I really, *really* don't care too much what others think about me, and have no problem being completely an open book, even to strangers. 
 
+Okay, now to less self-introspecive matters. I am extremely incapable and inefficient lately. I have to spend a lot of my time making sure my mental health is fine. I have to spend my time chilling out as much as possible, anything else would be dangerous and irresponsible. So although a part of my mind feels the need and obligation to take my PhD work seriously, I have to completely ignore that at the moment, and only do stuff when I feel like it. It is important in this state that I don't bother too much of pissing off other people. What is the worst that could happen? Nothing, really. I should keep that in mind. I need to find a life motto fitting to my current situation, something which encompasses the fact that I am important, that I should chill out, and that other things will have to take a back seat - but at the same time, that I am not acting out of egoistic motives but have to make sure that I swim and don't drown.
+
+I got it: "I am so ill that I need to chill." This will be my motto.
+
+# I am so ill that I need to chill
