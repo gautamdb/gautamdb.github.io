@@ -36,7 +36,12 @@ var x = setInterval(function() {
   if(timeOfDay == 0){
       document.body.style.background = "black";
       document.body.style.color = "white";
-  }
+  } else if (timeOfDay == 1){
+      document.body.style.background = "white";
+      document.body.style.color = "black";
+  }else if (timeOfDay == 2){
+      document.body.style.background = "#000064";
+      document.body.style.color = "#8FC9FF";
   
   //Build the output of time
   var timeMessage = "";
@@ -47,7 +52,7 @@ var x = setInterval(function() {
   timeMessage += moments + "</h1>";
 
   document.getElementById("meinezeit").innerHTML = timeMessage;
-}, 1000);
+}, 5000);
 
 </script>
 </body>
