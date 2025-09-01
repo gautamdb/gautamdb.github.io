@@ -1,5 +1,4 @@
 # Beobachtung des 21. deutschen Bundestages
-Ich beobachte gernde die Bundestagssitzungen. Kein Anspruch auf Vollständigkeit oder Objektivität.
 
 [Liste der Bundestagsabgeordneten](21ter_Bundestag.xlsx)
 
