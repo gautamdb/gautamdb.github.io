@@ -19,3 +19,14 @@ Okay, now to less self-introspecive matters. I am extremely incapable and ineffi
 I got it: "I am so ill that I need to chill." This will be my motto.
 
 # I am so ill that I need to chill
+
+## Friday, September 5, 2025
+Things are getting better. "Madness" is reducing. 
+
+I was earlier in a not-so-stable but still kind of stable state. Most of us are. Our whole routine, day-to-day activities, our life is more or less set. I don't mean that we do only the same things all the time. I mean that, seen from a psychological perspective, we are grounded in our surroundings, meaning our social circle, our close ones (usually family and friends), our obligations and stuff like that.
+
+And now I am on my way to a different stable state. Hopefully one which is, for me, much more stable. How this stable state looks, I don't know. I am not there yet, I am still quite a long way away from it.
+
+The point is, the whole time earlier I knew that my state was not stable enough. I was fighting with it and looking for more all the time. I tried to get out of it a few times, only to return back with the idea that this is all there is to my life, and that I need to find peace there. But peace was not to be found. This took a toll on me and led me to catapult myself out of the stable state.
+
+And what happens then? The path from one state to another is continuous. I am on this path. It is one of instability. One of insecurity. 
