@@ -24,7 +24,7 @@ Here is my [public CV](docs/publicCV.pdf).
 
 I've also got a [blog](blog) which I will update whenever I've got anything worth saying.
 
-([Here](timekeeping/watchface.html) is a clock I invented. And [here](timekeeping/Kalender-Jahr-3.pdf) is a calendar I invented. But both will be overtaken by a new version which I am currently developing.)
+[Here](timekeeping/Kalender%20Jahr-4.pdf) is a calendar I invented.
 
 [Pizza](images/pizza.png)
 [Momos](images/IMG_2636.jpeg)
