@@ -13,3 +13,5 @@
 [Israeli-Palestinian conflict](israeli-palestinian-conflict)
 
 [Madness](madness)
+
+[Meta-mathematical thoughts](meta-math)
