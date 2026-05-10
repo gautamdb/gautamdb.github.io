@@ -5,3 +5,5 @@ I created a [youtube channel](https://www.youtube.com/@Math3matik) which *some d
 [1](1.pdf) [2](2.pdf) [3](3.pdf) [4](4.pdf) [5](5.pdf) [6](6.pdf) [7](7.pdf) [8](8.pdf) [9](9.pdf) [10](IMG_0302.jpeg)
 
 Yaay! Finally the [first video](https://m.youtube.com/watch?v=xQnRdY9DGTk) is online! :) It is trivial.
+
+[second vid](https://www.youtube.com/watch?v=IyEtAD2xsAk) with a five month delay.
