@@ -26,6 +26,8 @@ I've also got a [blog](blog) which I will update whenever I've got anything wort
 
 [Here](timekeeping/Kalender_Jahr%204.pdf) is a calendar I invented.
 
+[Norms on finite-dimensional real or complex vector spaces are equivalent](docs/norms.pdf)
+
 [Pizza](images/pizza.png)
 [Momos](images/IMG_2636.jpeg)
 
