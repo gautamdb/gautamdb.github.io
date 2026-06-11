@@ -15,3 +15,5 @@
 [Madness](madness)
 
 [Meta-mathematical thoughts](meta-math)
+
+[A note about AI training labor](a-note-about-AI-training-labor)
