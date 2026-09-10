@@ -2,59 +2,204 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>
-.middle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-</style>
+
+  <style>
+    .middle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  </style>
 </head>
-<body bgcolor="black" text= "#B3B3B3">
+
+<body style="background-color: black; color: #B3B3B3;">
 
 <div class="middle">
-  <span id="meinezeit">wait patiently</span>
+  <span id="meinezeit">Javascript enabled?</span>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/suncalc"></script>
+
 <script>
+const latitude = 51.961563;
+const longitude = 7.628202;
+const timeZone = "Europe/Berlin";
 
-var x = setInterval(function() {
 
-  var now = new Date().getTime();
+// The SunCalc events we want to use.
+const eventNames = [
+    "nadir",
+    "sunrise",
+    "solarNoon",
+    "sunset",
+    "dusk"
+];
 
-  var distance;
-  var beginningOfYear = new Date("2024-01-04T00:00:00.000+01:00").getTime();
-  distance = now - beginningOfYear;
 
-  var timeOfDay = Math.floor((distance % (5000 * 20 * 48 * 6 * 3)) / (5000 * 20 * 48 * 6));
-  var fingurs = Math.floor((distance % (5000 * 20 * 48 * 6)) / (5000 * 20 * 48));
-  var hects = Math.floor((distance % (5000 * 20 * 48)) / (5000 * 20));
-  var moments = Math.floor((distance % (5000 * 20)) / 5000);
+// Turn a duration in milliseconds into something readable.
+function formatDuration(milliseconds) {
+    const totalMinutes = Math.floor(Math.abs(milliseconds) / 60000);
 
-  //Set background color
-  if(timeOfDay == 0){
-      document.body.style.background = "black";
-      document.body.style.color = "white";
-  } else if (timeOfDay == 1){
-      document.body.style.background = "white";
-      document.body.style.color = "black";
-  }else if (timeOfDay == 2){
-      document.body.style.background = "#000064";
-      document.body.style.color = "#8FC9FF";
-  }
-  
-  //Build the output of time
-  var timeMessage = "";
-  timeMessage +="<h1>" + fingurs + ":";
-  if(hects < 10) timeMessage += "0";
-  timeMessage += hects +  ":";
-  if(moments < 10) timeMessage += "0";
-  timeMessage += moments + "</h1>";
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
 
-  document.getElementById("meinezeit").innerHTML = timeMessage;
-}, 5000);
+    if (hours > 0) {
+        return hours + "h " + minutes + "m";
+    }
 
+    return minutes + "m";
+}
+
+
+// Format a SunCalc Date as local German time.
+function formatClock(date) {
+    return date.toLocaleTimeString("de-DE", {
+        timeZone: timeZone,
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+}
+
+
+// Get the events for a particular date.
+function getEvents(date) {
+    const times = SunCalc.getTimes(
+        date,
+        latitude,
+        longitude
+    );
+
+    return eventNames.map(name => ({
+        name: name,
+        time: times[name]
+    }));
+}
+
+
+function updateSunInfo() {
+
+    const now = new Date();
+
+    // Get yesterday, today and tomorrow.
+    const yesterday = new Date(now);
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    const today = new Date(now);
+
+    const tomorrow = new Date(now);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+
+    // Build one continuous sequence of solar events.
+    const events = [
+        ...getEvents(yesterday),
+        ...getEvents(today),
+        ...getEvents(tomorrow)
+    ];
+
+
+    // Sort chronologically.
+    events.sort((a, b) => a.time - b.time);
+
+
+    // Find the event immediately before and after now.
+    let previousEvent = null;
+    let nextEvent = null;
+
+    for (const event of events) {
+
+        if (event.time <= now) {
+            previousEvent = event;
+        }
+
+        if (event.time > now) {
+            nextEvent = event;
+            break;
+        }
+    }
+
+
+    // Calculate elapsed and remaining time.
+    const elapsed = now - previousEvent.time;
+    const remaining = nextEvent.time - now;
+
+
+    // Determine the current solar phase.
+    let timeMessage;
+
+    if (previousEvent.name === "nadir") {
+
+        timeMessage =
+            "Night. " +
+            formatDuration(elapsed) +
+            " since solar midnight. " +
+            formatDuration(remaining) +
+            " until sunrise.";
+
+    } else if (previousEvent.name === "sunrise") {
+
+        timeMessage =
+            "Daytime. " +
+            formatDuration(elapsed) +
+            " since sunrise. " +
+            formatDuration(remaining) +
+            " until solar noon.";
+
+    } else if (previousEvent.name === "solarNoon") {
+
+        timeMessage =
+            "Afternoon. " +
+            formatDuration(elapsed) +
+            " since solar noon. " +
+            formatDuration(remaining) +
+            " until sunset.";
+
+    } else if (previousEvent.name === "sunset") {
+
+        timeMessage =
+            "After sunset. " +
+            formatDuration(elapsed) +
+            " since sunset. " +
+            formatDuration(remaining) +
+            " until dusk.";
+
+    } else if (previousEvent.name === "dusk") {
+
+        timeMessage =
+            "Night. " +
+            formatDuration(elapsed) +
+            " since dusk. " +
+            formatDuration(remaining) +
+            " until solar midnight.";
+    }
+
+
+    // Add previous and next event times.
+    timeMessage +=
+        "<br>Previous: " +
+        previousEvent.name +
+        " at " +
+        formatClock(previousEvent.time);
+
+    timeMessage +=
+        "<br>Next: " +
+        nextEvent.name +
+        " at " +
+        formatClock(nextEvent.time);
+
+
+    document.getElementById("meinezeit").innerHTML = timeMessage;
+}
+
+
+// Run immediately.
+updateSunInfo();
+
+// Update every 5 seconds.
+setInterval(updateSunInfo, 5000);
 </script>
+
 </body>
 </html>
