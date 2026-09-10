@@ -14,7 +14,7 @@
   </style>
 </head>
 
-<body style="background-color: black; color: #B3B3B3;">
+<body style="background-color: #000000; color: #B3B3B3;">
 
 <div class="middle">
   <span id="meinezeit">Javascript enabled?</span>
@@ -25,7 +25,6 @@
 <script>
 const latitude = 51.961563;
 const longitude = 7.628202;
-const timeZone = "Europe/Berlin";
 
 
 // The SunCalc events we want to use.
@@ -50,16 +49,6 @@ function formatDuration(milliseconds) {
     }
 
     return minutes + "m";
-}
-
-
-// Format a SunCalc Date as local German time.
-function formatClock(date) {
-    return date.toLocaleTimeString("de-DE", {
-        timeZone: timeZone,
-        hour: "2-digit",
-        minute: "2-digit"
-    });
 }
 
 
@@ -126,70 +115,86 @@ function updateSunInfo() {
     const remaining = nextEvent.time - now;
 
 
-    // Determine the current solar phase.
+    // Set colors and message according to the current solar phase.
+
+    let backgroundColor;
+    let textColor;
     let timeMessage;
+
 
     if (previousEvent.name === "nadir") {
 
+        // Solar midnight -> sunrise
+        backgroundColor = "#000000";
+        textColor = "#666666";
+
         timeMessage =
-            "Night. " +
             formatDuration(elapsed) +
-            " since solar midnight. " +
+            " since solar midnight" +
+            "<br>" +
             formatDuration(remaining) +
-            " until sunrise.";
+            " until sunrise";
 
     } else if (previousEvent.name === "sunrise") {
 
+        // Sunrise -> solar noon
+        backgroundColor = "#87CEEB";
+        textColor = "#222222";
+
         timeMessage =
-            "Daytime. " +
             formatDuration(elapsed) +
-            " since sunrise. " +
+            " since sunrise" +
+            "<br>" +
             formatDuration(remaining) +
-            " until solar noon.";
+            " until solar noon";
 
     } else if (previousEvent.name === "solarNoon") {
 
+        // Solar noon -> sunset
+        backgroundColor = "#4FA3D1";
+        textColor = "#FFFFFF";
+
         timeMessage =
-            "Afternoon. " +
             formatDuration(elapsed) +
-            " since solar noon. " +
+            " since solar noon" +
+            "<br>" +
             formatDuration(remaining) +
-            " until sunset.";
+            " until sunset";
 
     } else if (previousEvent.name === "sunset") {
 
+        // Sunset -> dusk
+        backgroundColor = "#D2691E";
+        textColor = "#FFFFFF";
+
         timeMessage =
-            "After sunset. " +
             formatDuration(elapsed) +
-            " since sunset. " +
+            " since sunset" +
+            "<br>" +
             formatDuration(remaining) +
-            " until dusk.";
+            " until dusk";
 
     } else if (previousEvent.name === "dusk") {
 
+        // Dusk -> solar midnight
+        backgroundColor = "#191970";
+        textColor = "#B3B3B3";
+
         timeMessage =
-            "Night. " +
             formatDuration(elapsed) +
-            " since dusk. " +
+            " since dusk" +
+            "<br>" +
             formatDuration(remaining) +
-            " until solar midnight.";
+            " until solar midnight";
     }
 
 
-    // Add previous and next event times.
-    timeMessage +=
-        "<br>Previous: " +
-        previousEvent.name +
-        " at " +
-        formatClock(previousEvent.time);
-
-    timeMessage +=
-        "<br>Next: " +
-        nextEvent.name +
-        " at " +
-        formatClock(nextEvent.time);
+    // Apply the colors.
+    document.body.style.backgroundColor = backgroundColor;
+    document.body.style.color = textColor;
 
 
+    // Display the message.
     document.getElementById("meinezeit").innerHTML = timeMessage;
 }
 
@@ -197,8 +202,8 @@ function updateSunInfo() {
 // Run immediately.
 updateSunInfo();
 
-// Update every 5 seconds.
-setInterval(updateSunInfo, 5000);
+// Update every minute.
+setInterval(updateSunInfo, 60000);
 </script>
 
 </body>
