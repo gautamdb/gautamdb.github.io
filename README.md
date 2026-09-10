@@ -25,6 +25,7 @@ Here is my [public CV](docs/publicCV.pdf).
 I've also got a [blog](blog) which I will update whenever I've got anything worth saying.
 
 [Here](timekeeping/Kalender_Jahr%204.pdf) is a calendar I invented.
+
 [The time of the day](timekeeping/watchface.html), created with the help of ChatGPT (GPT-5.6 Luna), using [SunCalc](https://github.com/mourner/suncalc) by Volodymyr Agafonkin ([license](https://github.com/mourner/suncalc?tab=BSD-2-Clause-1-ov-file)).
 
 [Norms on finite-dimensional real or complex vector spaces are equivalent](docs/norms.pdf)
