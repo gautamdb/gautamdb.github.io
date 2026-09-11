@@ -16,7 +16,10 @@
 <div class="middle">
   <span id="meinezeit">Javascript enabled?</span>
 </div>
+
+<!-- SunCalc provides the astronomical calculations for the sun's position. -->
 <script src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0/suncalc.js"></script>
+
 <script>
 
 // Initial location used until a newer location is successfully fetched.
@@ -53,6 +56,9 @@ refreshLocation();
 setInterval(refreshLocation, 300000);
 
 
+// These are the solar events that are relevant for the display.
+// SunCalc calculates many other events as well, but only these five
+// are used here to divide the day into the desired solar phases.
 const eventNames = [
     "nadir",
     "sunrise",
@@ -62,6 +68,8 @@ const eventNames = [
 ];
 
 
+// Convert a time difference in milliseconds into a short
+// human-readable duration such as "2h 15m" or "37m".
 function formatDuration(milliseconds) {
     const totalMinutes = Math.floor(Math.abs(milliseconds) / 60000);
     const hours = Math.floor(totalMinutes / 60);
@@ -73,16 +81,34 @@ function formatDuration(milliseconds) {
 }
 
 
+// Calculate the selected solar events for one particular date
+// at the current latitude and longitude.
+//
+// SunCalc returns the actual Date objects for events such as
+// sunrise, solar noon, sunset, dusk and nadir.
 function getEvents(date) {
     const times = SunCalc.getTimes(date, latitude, longitude);
 
+    // Keep only the solar events listed in eventNames and attach
+    // the event name to its calculated time.
     return eventNames.map(name => ({ name: name, time: times[name] }));
 }
 
 
+// Recalculate the current solar phase and update the display.
 function updateSunInfo() {
+
+    // The current date and time are used as the reference point
+    // for deciding which solar event has already happened
+    // and which one will happen next.
     const now = new Date();
 
+
+    // Calculate the solar events for yesterday, today and tomorrow.
+    //
+    // Using three days makes sure that there is always a previous
+    // and a following solar event available, including around
+    // midnight.
     const yesterday = new Date(now);
     yesterday.setDate(yesterday.getDate() - 1);
 
@@ -92,6 +118,7 @@ function updateSunInfo() {
     tomorrow.setDate(tomorrow.getDate() + 1);
 
 
+    // Combine all solar events from the three days into one list.
     const events = [
         ...getEvents(yesterday),
         ...getEvents(today),
@@ -99,16 +126,24 @@ function updateSunInfo() {
     ];
 
 
+    // Put all events into chronological order.
     events.sort((a, b) => a.time - b.time);
 
 
+    // Find the solar event that has most recently happened
+    // and the next solar event that will happen.
     let previousEvent = null;
     let nextEvent = null;
 
 
     for (const event of events) {
+
+        // Every event at or before "now" becomes the previous event.
+        // Because the list is chronological, the last one assigned
+        // here is the most recent event.
         if (event.time <= now) previousEvent = event;
 
+        // The first event after "now" is the next event.
         if (event.time > now) {
             nextEvent = event;
             break;
@@ -116,15 +151,20 @@ function updateSunInfo() {
     }
 
 
+    // Calculate how much time has passed since the previous
+    // solar event and how much time remains until the next one.
     const elapsed = now - previousEvent.time;
     const remaining = nextEvent.time - now;
 
 
+    // These values determine the appearance and text of the page
+    // for the current solar phase.
     let backgroundColor;
     let textColor;
     let timeMessage;
 
 
+    // After solar midnight (nadir) and before sunrise.
     if (previousEvent.name === "nadir") {
 
         backgroundColor = "#000000";
@@ -137,6 +177,7 @@ function updateSunInfo() {
             formatDuration(remaining) +
             " until sunrise";
 
+    // After sunrise and before solar noon.
     } else if (previousEvent.name === "sunrise") {
 
         backgroundColor = "#87CEEB";
@@ -149,6 +190,7 @@ function updateSunInfo() {
             formatDuration(remaining) +
             " until solar noon";
 
+    // After solar noon and before sunset.
     } else if (previousEvent.name === "solarNoon") {
 
         backgroundColor = "#4FA3D1";
@@ -161,6 +203,7 @@ function updateSunInfo() {
             formatDuration(remaining) +
             " until sunset";
 
+    // After sunset and before dusk.
     } else if (previousEvent.name === "sunset") {
 
         backgroundColor = "#D2691E";
@@ -173,6 +216,7 @@ function updateSunInfo() {
             formatDuration(remaining) +
             " until dusk";
 
+    // After dusk and before the next solar midnight.
     } else if (previousEvent.name === "dusk") {
 
         backgroundColor = "#191970";
@@ -187,15 +231,22 @@ function updateSunInfo() {
     }
 
 
+    // Apply the colours belonging to the current solar phase.
     document.body.style.backgroundColor = backgroundColor;
     document.body.style.color = textColor;
+
+    // Replace the text in the page with the current solar information.
     document.getElementById("meinezeit").innerHTML = timeMessage;
 }
 
 
-// Update the clock immediately when the page loads,
-// then update it every 60 seconds independently of location fetching.
+// Calculate and display the solar information immediately
+// when the page loads.
 updateSunInfo();
+
+// Recalculate the solar information every 60 seconds.
+// This runs independently of the location-fetching timer above,
+// so a failed /latest request does not stop the clock from updating.
 setInterval(updateSunInfo, 60000);
 
 </script>
