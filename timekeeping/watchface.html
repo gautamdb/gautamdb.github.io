@@ -17,14 +17,15 @@
 <body style="background-color: #000000; color: #B3B3B3;">
 
 <div class="middle">
-  <span id="meinezeit">Javascript enabled?</span>
+  <span id="meinezeit">Loading location...</span>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/suncalc@1.9.0/suncalc.js"></script>
 
 <script>
-const latitude = 51.961563;
-const longitude = 7.628202;
+
+let latitude;
+let longitude;
 
 
 // The SunCalc events we want to use.
@@ -199,11 +200,43 @@ function updateSunInfo() {
 }
 
 
-// Run immediately.
-updateSunInfo();
+// Fetch the latest location from our Worker.
+async function refreshLocation() {
 
-// Update every minute.
-setInterval(updateSunInfo, 60000);
+    try {
+
+        const response = await fetch(
+            "https://calm-limit-5bf9.vyr6trmgb5.workers.dev/latest"
+        );
+
+        if (!response.ok) {
+            throw new Error("Could not fetch location");
+        }
+
+        const location = await response.json();
+
+        latitude = Number(location.latitude);
+        longitude = Number(location.longitude);
+
+        updateSunInfo();
+
+    } catch (error) {
+
+        console.error(error);
+
+        document.getElementById("meinezeit").textContent =
+            "Could not load location.";
+    }
+}
+
+
+// Fetch the location immediately.
+refreshLocation();
+
+
+// Fetch the location again every minute.
+setInterval(refreshLocation, 60000);
+
 </script>
 
 </body>
