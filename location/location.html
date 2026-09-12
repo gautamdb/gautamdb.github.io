@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+
+<h3>Latest location</h3>
+
+<div id="location">Loading...</div>
+
+<script>
+
+const latestURL =
+    "https://calm-limit-5bf9.vyr6trmgb5.workers.dev/latest";
+
+
+// Format an ISO timestamp into a human-readable local date and time.
+function formatTimestamp(timestamp) {
+    return new Date(timestamp).toLocaleString();
+}
+
+
+// Fetch and display the latest location.
+async function refreshLocation() {
+
+    try {
+
+        const response = await fetch(latestURL);
+
+        if (!response.ok) {
+            throw new Error("Could not fetch location");
+        }
+
+        const location = await response.json();
+
+
+        const latitude = Number(location.latitude);
+        const longitude = Number(location.longitude);
+
+
+        // Create an OpenStreetMap link with a marker at the location.
+        const osmURL =
+            "https://www.openstreetmap.org/?mlat=" +
+            latitude +
+            "&mlon=" +
+            longitude +
+            "#map=16/" +
+            latitude +
+            "/" +
+            longitude;
+
+
+        document.getElementById("location").innerHTML =
+
+            "Latitude: " + latitude +
+            "<br>" +
+
+            "Longitude: " + longitude +
+            "<br><br>" +
+
+            "GPS timestamp: " +
+            formatTimestamp(location.gps_timestamp) +
+            "<br>" +
+
+            "Server received: " +
+            formatTimestamp(location.received_at) +
+            "<br><br>" +
+
+            '<a href="' + osmURL + '" target="_blank">' +
+            "Open in OpenStreetMap" +
+            "</a>";
+
+    } catch (error) {
+
+        console.error("Location update failed:", error);
+
+    }
+}
+
+
+// Fetch the location immediately when the page loads.
+refreshLocation();
+
+// Check for a newer location every 30 seconds.
+setInterval(refreshLocation, 30000);
+
+</script>
+
+</body>
+</html>
