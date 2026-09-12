@@ -26,11 +26,15 @@ I've also got a [blog](blog) which I will update whenever I've got anything wort
 
 [Here](timekeeping/Kalender_Jahr%204.pdf) is a calendar I invented.
 
-[The time of the day](timekeeping/watchface.html), created with the help of ChatGPT (GPT-5.6 Luna), using [SunCalc](https://github.com/mourner/suncalc) by Volodymyr Agafonkin ([license](https://github.com/mourner/suncalc?tab=BSD-2-Clause-1-ov-file)).
-
-[Norms on finite-dimensional real or complex vector spaces are equivalent](docs/norms.pdf)
-
 [Pizza](images/pizza.png)
 [Momos](images/IMG_2636.jpeg)
 
 [Math3matik](math3matik)
+
+Stuff done with AI:
+
+[The time of the day](timekeeping/watchface.html) - created with the help of ChatGPT (GPT-5.6 Luna), using [SunCalc](https://github.com/mourner/suncalc) by Volodymyr Agafonkin ([license](https://github.com/mourner/suncalc?tab=BSD-2-Clause-1-ov-file)).
+
+[Norms on finite-dimensional real or complex vector spaces are equivalent](docs/norms.pdf) - formulated and typeset with AI, logic mostly explained to it.
+
+[The location of my phone](location/location.html) - engineered and implemented by ChatGPT (GPT-5.6 Luna) with gentle steering by me.
