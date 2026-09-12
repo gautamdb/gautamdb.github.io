@@ -23,15 +23,18 @@ const latestURL =
     "https://calm-limit-5bf9.vyr6trmgb5.workers.dev/latest";
 
 // GeoNames username.
-const geoNamesUsername = "gautamdb";
+const geoNamesUsername = "UNAME";
 
 
 // Format a timestamp using the timezone returned by GeoNames.
 function formatTimestamp(timestamp, timeZone) {
 
     return new Intl.DateTimeFormat("en-GB", {
-        dateStyle: "short",
-        timeStyle: "medium",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
         timeZone: timeZone
     }).format(new Date(timestamp));
 
@@ -135,26 +138,25 @@ async function refreshAll() {
         }
 
         html += countryName + "<br>";
-        html += timeZone;
-
-        html += "<br><br>";
-
-        html +=
-            "GPS timestamp: " +
-            formatTimestamp(location.gps_timestamp, timeZone);
-
-        html += "<br>";
-
-        html +=
-            "Server received: " +
-            formatTimestamp(location.received_at, timeZone);
-
-        html += "<br><br>";
 
         html +=
             '<a href="' + osmURL + '" target="_blank">' +
-            "Open in OpenStreetMap" +
+            "Show in OpenStreetMap" +
             "</a>";
+
+        html += "<br><br>";
+
+        // Display the timestamps together in a small, unobtrusive line.
+        html +=
+            '<span style="font-size: 10px;">' +
+            "Location recorded: " +
+            formatTimestamp(location.gps_timestamp, timeZone) +
+            " (" + timeZone + ")" +
+            " &middot; " +
+            "Received by server: " +
+            formatTimestamp(location.received_at, timeZone) +
+            " (" + timeZone + ")" +
+            "</span>";
 
 
         locationDiv.innerHTML = html;
