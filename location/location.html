@@ -10,23 +10,50 @@
 
 <div id="location">Loading...</div>
 
+<br>
+
+<button id="refreshButton" onclick="refreshAll()">Refresh</button>
+
+<div id="status"></div>
+
 <script>
 
+// URL of the Worker endpoint that provides the latest GPS data.
 const latestURL =
     "https://calm-limit-5bf9.vyr6trmgb5.workers.dev/latest";
 
+// GeoNames username.
+const geoNamesUsername = "UNAME";
 
-// Format an ISO timestamp into a human-readable local date and time.
-function formatTimestamp(timestamp) {
-    return new Date(timestamp).toLocaleString();
+
+// Format a timestamp using the timezone returned by GeoNames.
+function formatTimestamp(timestamp, timeZone) {
+
+    return new Intl.DateTimeFormat("en-GB", {
+        dateStyle: "short",
+        timeStyle: "medium",
+        timeZone: timeZone
+    }).format(new Date(timestamp));
+
 }
 
 
-// Fetch and display the latest location.
-async function refreshLocation() {
+// Fetch the latest GPS location and then query GeoNames.
+async function refreshAll() {
+
+    const button = document.getElementById("refreshButton");
+    const status = document.getElementById("status");
+    const locationDiv = document.getElementById("location");
+
+    button.disabled = true;
+    button.textContent = "refreshing...";
+    status.textContent = "";
+    status.style.color = "";
+
 
     try {
 
+        // Get the latest location from our Worker.
         const response = await fetch(latestURL);
 
         if (!response.ok) {
@@ -35,56 +62,131 @@ async function refreshLocation() {
 
         const location = await response.json();
 
-
         const latitude = Number(location.latitude);
         const longitude = Number(location.longitude);
 
 
-        // Create an OpenStreetMap link with a marker at the location.
+        // Ask GeoNames for country and timezone.
+        const timezoneURL =
+            "https://secure.geonames.org/timezoneJSON" +
+            "?lat=" + latitude +
+            "&lng=" + longitude +
+            "&username=" + geoNamesUsername;
+
+        const timezoneResponse = await fetch(timezoneURL);
+
+        if (!timezoneResponse.ok) {
+            throw new Error("Could not fetch timezone");
+        }
+
+        const timezoneData = await timezoneResponse.json();
+
+
+        // Ask GeoNames for the nearest named place.
+        const placeURL =
+            "https://secure.geonames.org/findNearbyPlaceNameJSON" +
+            "?lat=" + latitude +
+            "&lng=" + longitude +
+            "&username=" + geoNamesUsername +
+            "&maxRows=1";
+
+        const placeResponse = await fetch(placeURL);
+
+        if (!placeResponse.ok) {
+            throw new Error("Could not fetch place");
+        }
+
+        const placeData = await placeResponse.json();
+
+
+        const timeZone = timezoneData.timezoneId;
+        const countryName = timezoneData.countryName;
+
+        let placeName = "";
+        let regionName = "";
+
+
+        if (placeData.geonames && placeData.geonames.length > 0) {
+
+            placeName = placeData.geonames[0].name || "";
+            regionName = placeData.geonames[0].adminName1 || "";
+
+        }
+
+
+        // Create an OpenStreetMap link using the exact coordinates.
+        // The coordinates themselves are not displayed on the page.
         const osmURL =
-            "https://www.openstreetmap.org/?mlat=" +
-            latitude +
-            "&mlon=" +
-            longitude +
-            "#map=16/" +
-            latitude +
-            "/" +
-            longitude;
+            "https://www.openstreetmap.org/" +
+            "?mlat=" + latitude +
+            "&mlon=" + longitude +
+            "#map=16/" + latitude + "/" + longitude;
 
 
-        document.getElementById("location").innerHTML =
+        // Build the displayed location information.
+        let html = "";
 
-            "Latitude: " + latitude +
-            "<br>" +
+        if (placeName) {
+            html += placeName + "<br>";
+        }
 
-            "Longitude: " + longitude +
-            "<br><br>" +
+        if (regionName) {
+            html += regionName + "<br>";
+        }
 
+        html += countryName + "<br>";
+        html += timeZone;
+
+        html += "<br><br>";
+
+        html +=
             "GPS timestamp: " +
-            formatTimestamp(location.gps_timestamp) +
-            "<br>" +
+            formatTimestamp(location.gps_timestamp, timeZone);
 
+        html += "<br>";
+
+        html +=
             "Server received: " +
-            formatTimestamp(location.received_at) +
-            "<br><br>" +
+            formatTimestamp(location.received_at, timeZone);
 
+        html += "<br><br>";
+
+        html +=
             '<a href="' + osmURL + '" target="_blank">' +
             "Open in OpenStreetMap" +
             "</a>";
+
+
+        locationDiv.innerHTML = html;
+
+
+        // Show a temporary success message.
+        status.textContent = "Refresh successful";
+        status.style.color = "green";
+
+        setTimeout(function() {
+            status.textContent = "";
+        }, 3000);
+
 
     } catch (error) {
 
         console.error("Location update failed:", error);
 
+        status.textContent = "Refresh failed";
+        status.style.color = "red";
+
     }
+
+
+    button.disabled = false;
+    button.textContent = "Refresh";
+
 }
 
 
-// Fetch the location immediately when the page loads.
-refreshLocation();
-
-// Check for a newer location every 30 seconds.
-setInterval(refreshLocation, 30000);
+// Load the location once when the page opens.
+refreshAll();
 
 </script>
 
