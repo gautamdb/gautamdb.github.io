@@ -14,7 +14,7 @@ const longitude = -70;
 // Distance threshold in kilometres.
 const distanceThreshold = 17;
 // GeoNames username.
-const geoNamesUsername = "gautamdb";
+const geoNamesUsername = "UNAME";
 // Ask GeoNames for the nearest accepted populated place.
 async function loadLocation() {
     const locationDiv = document.getElementById("location");
@@ -67,22 +67,21 @@ async function loadLocation() {
         const hierarchyData = await hierarchyResponse.json();
         const names = [];
         if (hierarchyData.geonames) {
-            hierarchyData.geonames.forEach(function(item) {
-                const name = item.name;
-                if (!name) {
-                    return;
-                }
-                // Remove only immediately repeated identical names.
-                if (names.length === 0 ||
-                    names[names.length - 1] !== name) {
-                    names.push(name);
-                }
-            });
-        }
-        // Make sure the selected populated place is represented.
-        if (names.length === 0 ||
-            names[names.length - 1] !== placeName) {
-            names.push(placeName);
+            // GeoNames returns the hierarchy from broadest to most specific.
+            // Reverse it so the nearest place appears first.
+            hierarchyData.geonames
+                .filter(function(item) {
+                    return item.name && item.name !== "Earth";
+                })
+                .reverse()
+                .forEach(function(item) {
+                    const name = item.name;
+                    // Remove only immediately repeated identical names.
+                    if (names.length === 0 ||
+                        names[names.length - 1] !== name) {
+                        names.push(name);
+                    }
+                });
         }
         let html = "";
         if (distance > distanceThreshold) {
