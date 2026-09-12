@@ -1,298 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
-
 <body>
-
-<h3>Latest location</h3>
-
+<h3>Location test</h3>
 <div id="location">Loading...</div>
-
-<br>
-
-<button id="refreshButton" onclick="refreshAll()">Refresh</button>
-
-<div id="status"></div>
-
 <script>
-
-// URL of the Worker endpoint that provides the latest GPS data.
-const latestURL =
-    "https://calm-limit-5bf9.vyr6trmgb5.workers.dev/latest";
-
+// Test coordinates.
+// These are deliberately remote coordinates in Patagonia.
+const latitude = -50;
+const longitude = -70;
+// Distance threshold in kilometres.
+const distanceThreshold = 17;
 // GeoNames username.
-const geoNamesUsername = "gautamdb";
-
-
-// Format a timestamp using the timezone returned by GeoNames.
-function formatTimestamp(timestamp, timeZone) {
-
-    return new Intl.DateTimeFormat("en-GB", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-        timeZone: timeZone
-    }).format(new Date(timestamp));
-
-}
-
-
-// Try to turn an administrative municipality name into a simple city name.
-function cleanCityName(name) {
-
-    if (!name) {
-        return "";
-    }
-
-    return name
-        .replace(/^Kreisfreie Stadt /, "")
-        .replace(/^Köln, Stadt$/, "Köln")
-        .replace(/^Münster, Stadt$/, "Münster")
-        .replace(/, Stadt$/, "")
-        .trim();
-
-}
-
-
-// Fetch the latest GPS location and then query GeoNames.
-async function refreshAll() {
-
-    const button = document.getElementById("refreshButton");
-    const status = document.getElementById("status");
+const geoNamesUsername = "UNAME";
+// Ask GeoNames for the nearest accepted populated place.
+async function loadLocation() {
     const locationDiv = document.getElementById("location");
-
-    button.disabled = true;
-    button.textContent = "refreshing...";
-    status.textContent = "";
-    status.style.color = "";
-
-
     try {
-
-        // Get the latest location from our Worker.
-        const response = await fetch(latestURL);
-
-        if (!response.ok) {
-            throw new Error("Could not fetch location");
-        }
-
-        const location = await response.json();
-
-        const latitude = Number(location.latitude);
-        const longitude = Number(location.longitude);
-
-
-        // Ask GeoNames for timezone and country.
-        const timezoneURL =
-            "https://secure.geonames.org/timezoneJSON" +
-            "?lat=" + latitude +
-            "&lng=" + longitude +
-            "&username=" + geoNamesUsername;
-
-        const timezoneResponse = await fetch(timezoneURL);
-
-        if (!timezoneResponse.ok) {
-            throw new Error("Could not fetch timezone");
-        }
-
-        const timezoneData = await timezoneResponse.json();
-
-
-        // Ask GeoNames for nearby administrative areas.
-        const adminURL =
+        const placeURL =
             "https://secure.geonames.org/findNearbyJSON" +
             "?lat=" + latitude +
             "&lng=" + longitude +
-            "&featureClass=A" +
-            "&maxRows=20" +
+            "&featureClass=P" +
+            "&featureCode=PPL" +
+            "&featureCode=PPLA" +
+            "&featureCode=PPLA2" +
+            "&featureCode=PPLA3" +
+            "&featureCode=PPLA4" +
+            "&featureCode=PPLA5" +
+            "&featureCode=PPLC" +
+            "&featureCode=PPLF" +
+            "&featureCode=PPLG" +
+            "&featureCode=PPLL" +
+            "&featureCode=PPLS" +
+            "&featureCode=PPLX" +
+            "&featureCode%21=PPLCH" +
+            "&featureCode%21=PPLH" +
+            "&featureCode%21=PPLQ" +
+            "&featureCode%21=PPLR" +
+            "&featureCode%21=PPLW" +
+            "&maxRows=10" +
             "&username=" + geoNamesUsername;
-
-        const adminResponse = await fetch(adminURL);
-
-        if (!adminResponse.ok) {
-            throw new Error("Could not fetch administrative areas");
+        const placeResponse = await fetch(placeURL);
+        if (!placeResponse.ok) {
+            throw new Error("Could not fetch place");
         }
-
-        const adminData = await adminResponse.json();
-
-
-        // Ask GeoNames for nearby postal places.
-        const postalURL =
-            "https://secure.geonames.org/findNearbyPostalCodesJSON" +
-            "?lat=" + latitude +
-            "&lng=" + longitude +
+        const placeData = await placeResponse.json();
+        if (!placeData.geonames || placeData.geonames.length === 0) {
+            throw new Error("No populated place found");
+        }
+        const place = placeData.geonames[0];
+        const distance = Number(place.distance);
+        const placeName = place.name;
+        const geonameId = place.geonameId;
+        // Ask GeoNames for the complete hierarchy.
+        const hierarchyURL =
+            "https://secure.geonames.org/hierarchyJSON" +
+            "?geonameId=" + geonameId +
             "&username=" + geoNamesUsername;
-
-        const postalResponse = await fetch(postalURL);
-
-        if (!postalResponse.ok) {
-            throw new Error("Could not fetch postal information");
+        const hierarchyResponse = await fetch(hierarchyURL);
+        if (!hierarchyResponse.ok) {
+            throw new Error("Could not fetch hierarchy");
         }
-
-        const postalData = await postalResponse.json();
-
-
-        const timeZone = timezoneData.timezoneId;
-        const countryName = timezoneData.countryName;
-
-
-        let localArea = "";
-        let cityName = "";
-        let regionName = "";
-
-
-        // Find the nearest current ADM5 area.
-        if (adminData.geonames) {
-
-            const adm5 = adminData.geonames.find(function(place) {
-                return place.fcode === "ADM5";
-            });
-
-            if (adm5) {
-                localArea = adm5.name || adm5.toponymName || "";
-            }
-
-        }
-
-
-        // Find the municipality from the administrative data.
-        // ADM4 is preferred when GeoNames provides it.
-        if (adminData.geonames) {
-
-            const adm4 = adminData.geonames.find(function(place) {
-                return place.fcode === "ADM4";
-            });
-
-            if (adm4) {
-                cityName = adm4.name || adm4.toponymName || "";
-            }
-
-        }
-
-
-        // Get the state from the administrative data.
-        if (adminData.geonames && adminData.geonames.length > 0) {
-
-            const placeWithRegion = adminData.geonames.find(function(place) {
-                return place.adminName1;
-            });
-
-            if (placeWithRegion) {
-                regionName = placeWithRegion.adminName1 || "";
-            }
-
-        }
-
-
-        // If there is no ADM4, use the municipality associated
-        // with a nearby postal place.
-        if (!cityName && postalData.postalCodes) {
-
-            const postalPlace = postalData.postalCodes.find(function(postal) {
-
-                if (!postal.placeName || !postal.adminName3) {
-                    return false;
+        const hierarchyData = await hierarchyResponse.json();
+        const names = [];
+        if (hierarchyData.geonames) {
+            hierarchyData.geonames.forEach(function(item) {
+                const name = item.name;
+                if (!name) {
+                    return;
                 }
-
-                const municipality = cleanCityName(postal.adminName3);
-
-                return postal.placeName === municipality;
-
+                // Remove only immediately repeated identical names.
+                if (names.length === 0 ||
+                    names[names.length - 1] !== name) {
+                    names.push(name);
+                }
             });
-
-            if (postalPlace) {
-                cityName = postalPlace.placeName;
-            }
-
         }
-
-
-        // If ADM4 was available, clean its name.
-        cityName = cleanCityName(cityName);
-
-
-        // Create an OpenStreetMap link using the exact coordinates.
-        // The coordinates themselves are not displayed on the page.
-        const osmURL =
-            "https://www.openstreetmap.org/" +
-            "?mlat=" + latitude +
-            "&mlon=" + longitude +
-            "#map=16/" + latitude + "/" + longitude;
-
-
-        // Build the displayed location information.
+        // Make sure the selected populated place is represented.
+        if (names.length === 0 ||
+            names[names.length - 1] !== placeName) {
+            names.push(placeName);
+        }
         let html = "";
-
-        if (localArea) {
-            html += localArea + "<br>";
+        if (distance > distanceThreshold) {
+            html +=
+                Math.round(distance) +
+                " km from " +
+                placeName +
+                "<br><br>";
         }
-
-        if (cityName && cityName !== localArea) {
-            html += cityName + "<br>";
-        }
-
-        if (regionName) {
-            html += regionName + "<br>";
-        }
-
-        html += countryName + "<br>";
-
-        html +=
-            '<a href="' + osmURL + '" target="_blank">' +
-            "Show in OpenStreetMap" +
-            "</a>";
-
-        html += "<br><br>";
-
-        // Display the timestamps together in a small, unobtrusive line.
-        html +=
-            '<span style="font-size: 10px;">' +
-            "Location recorded: " +
-            formatTimestamp(location.gps_timestamp, timeZone) +
-            " (" + timeZone + ")" +
-            " &middot; " +
-            "Received by server: " +
-            formatTimestamp(location.received_at, timeZone) +
-            " (" + timeZone + ")" +
-            "</span>";
-
-
+        names.forEach(function(name) {
+            html += name + "<br>";
+        });
         locationDiv.innerHTML = html;
-
-
-        // Show a temporary success message.
-        status.textContent = "Refresh successful";
-        status.style.color = "green";
-
-        setTimeout(function() {
-            status.textContent = "";
-        }, 3000);
-
-
+        console.log("Nearest place:", placeName);
+        console.log("Distance:", distance, "km");
+        console.log("GeoNames ID:", geonameId);
+        console.log("Hierarchy:", names);
     } catch (error) {
-
-        console.error("Location update failed:", error);
-
-        status.textContent = "Refresh failed";
-        status.style.color = "red";
-
+        console.error("Location test failed:", error);
+        locationDiv.textContent = "Test failed";
     }
-
-
-    button.disabled = false;
-    button.textContent = "Refresh";
-
 }
-
-
-// Load the location once when the page opens.
-refreshAll();
-
+loadLocation();
 </script>
-
 </body>
 </html>
