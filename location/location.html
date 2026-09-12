@@ -23,7 +23,7 @@ const latestURL =
     "https://calm-limit-5bf9.vyr6trmgb5.workers.dev/latest";
 
 // GeoNames username.
-const geoNamesUsername = "gautamdb";
+const geoNamesUsername = "UNAME";
 
 
 // Format a timestamp using the timezone returned by GeoNames.
@@ -85,7 +85,7 @@ async function refreshAll() {
         const timezoneData = await timezoneResponse.json();
 
 
-        // Ask GeoNames for several nearby places.
+        // Ask GeoNames for the nearest named place.
         const placeURL =
             "https://secure.geonames.org/findNearbyPlaceNameJSON" +
             "?lat=" + latitude +
