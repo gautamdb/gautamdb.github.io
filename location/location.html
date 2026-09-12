@@ -85,13 +85,13 @@ async function refreshAll() {
         const timezoneData = await timezoneResponse.json();
 
 
-        // Ask GeoNames for the nearest named place.
+        // Ask GeoNames for several nearby places.
         const placeURL =
             "https://secure.geonames.org/findNearbyPlaceNameJSON" +
             "?lat=" + latitude +
             "&lng=" + longitude +
             "&username=" + geoNamesUsername +
-            "&maxRows=1";
+            "&maxRows=10";
 
         const placeResponse = await fetch(placeURL);
 
@@ -109,11 +109,20 @@ async function refreshAll() {
         let regionName = "";
 
 
-        if (placeData.geonames && placeData.geonames.length > 0) {
+        // Select the nearest ordinary current populated place.
+        // This avoids unsuitable results such as historical places (PPLCH).
+        if (placeData.geonames) {
 
-            placeName = placeData.geonames[0].name || "";
-            regionName = placeData.geonames[0].adminName1 || "";
+            const suitablePlace = placeData.geonames.find(function(place) {
+                return place.fcode === "PPL";
+            });
 
+            if (suitablePlace) {
+
+                placeName = suitablePlace.name || "";
+                regionName = suitablePlace.adminName1 || "";
+
+            }
         }
 
 
@@ -152,7 +161,7 @@ async function refreshAll() {
             "Location recorded: " +
             formatTimestamp(location.gps_timestamp, timeZone) +
             " (" + timeZone + ")" +
-            "<br>" +
+            " &middot; " +
             "Received by server: " +
             formatTimestamp(location.received_at, timeZone) +
             " (" + timeZone + ")" +
