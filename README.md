@@ -33,8 +33,8 @@ I've also got a [blog](blog) which I will update whenever I've got anything wort
 
 Stuff done with AI:
 
+[Norms on finite-dimensional real or complex vector spaces are equivalent](docs/norms.pdf) - formulated and typeset with Claude (Sonnet 4.6).
+
 [The time of the day](timekeeping/watchface.html) - created with the help of ChatGPT (GPT-5.6 Luna), using [SunCalc](https://github.com/mourner/suncalc) by Volodymyr Agafonkin ([license](https://github.com/mourner/suncalc?tab=BSD-2-Clause-1-ov-file)).
 
-[Norms on finite-dimensional real or complex vector spaces are equivalent](docs/norms.pdf) - formulated and typeset with AI, logic mostly explained to it.
-
-[The location of my phone](location/location.html) - engineered and implemented by ChatGPT (GPT-5.6 Luna) with gentle steering by me.
+[The location of my phone](location/location.html) - engineered and implemented by ChatGPT (GPT-5.6 Luna) with gentle steering by me. Uses [HookTrace](https://apps.apple.com/us/app/hooktrace/id6761300724), [Cloudflare](https://www.cloudflare.com) and [GeoNames](https://www.geonames.org/about.html).
