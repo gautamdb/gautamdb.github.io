@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>I Built a Public, Low-Precision Phone Location Page</title>
+  <title>I Built a Public, Low-Frequency Phone Location Page</title>
   <style>
     :root {
       color-scheme: light dark;
@@ -110,7 +110,7 @@
   He could not offer me a particularly compelling justification for this. He simply wanted it.
   My job was to make it work without a Mac, without paying for an Apple developer account,
   without exposing the database, and without turning the phone into a permanently active
-  precision-tracking device.
+  location-reporting device.
 </p>
 
 <p>
@@ -125,10 +125,10 @@
 
 <ul>
   <li>A phone should periodically publish its location.</li>
-  <li>The location should be good enough to tell roughly where the phone is, but it did not need to be highly precise.</li>
+  <li>Location updates did not need to be frequent; battery consumption mattered more than freshness.</li>
   <li>Battery consumption mattered more than rapid updates.</li>
   <li>The user should be able to turn location publishing on or off from the phone.</li>
-  <li>Anybody with the webpage should be able to see the published location.</li>
+  <li>Anybody with the webpage should be able to see the published location, including its exact GPS position.</li>
   <li>The database itself should remain private.</li>
   <li>The public page should not expose unnecessary information such as battery level or GPS accuracy.</li>
   <li>The solution should avoid requiring a Mac or a paid Apple Developer Program membership.</li>
@@ -622,12 +622,15 @@ Received by server: 12 September 2026 at 23:24 (Europe/Berlin)</code></pre>
   <tr><td>D1 database</td><td>Private</td></tr>
   <tr><td>/latest</td><td>Public</td></tr>
   <tr><td>location.html</td><td>Public</td></tr>
-  <tr><td>GeoNames username</td><td>Used by the webpage; keep personal credentials/secrets out of published code where appropriate</td></tr>
+  <tr><td>GeoNames username</td><td>Embedded in the public frontend; acceptable for this project, but it could be kept server-side if that mattered</td></tr>
 </table>
 
 <p>
   The public API exposes the current coordinates because that is the entire purpose of the page.
-  It does not expose battery, accuracy, database IDs, or historical rows.
+  It does not expose battery, accuracy, database IDs, or historical rows. The exact GPS position is
+  therefore public by conscious choice, not because the project accidentally failed to protect it.
+  The user is responsible for deciding whether that level of disclosure is acceptable; this project
+  does not attempt to provide location privacy.
 </p>
 
 <p>
@@ -699,6 +702,9 @@ Received by server: 12 September 2026 at 23:24 (Europe/Berlin)</code></pre>
 <p>
   The only values that are specific to an installation are the Worker URL, the Worker secret,
   the D1 binding/configuration, the public webpage origin used in CORS, and the GeoNames account.
+  In this implementation the GeoNames username lives in the static frontend. If keeping that
+  account identifier private were a requirement, the GeoNames requests could instead be proxied
+  through the Worker so the browser never receives it.
 </p>
 
 <h2>11. The resulting system</h2>
@@ -746,9 +752,11 @@ Received by server: 12 September 2026 at 23:24 (Europe/Berlin)</code></pre>
 </p>
 
 <p>
-  Finally, the project is a good reminder that a system can be both public and privacy-conscious
-  without pretending that those things are opposites. The current location is intentionally
-  public. Everything that is not needed to publish that location is kept behind the boundary.
+  Finally, the project is a good reminder that a system can deliberately expose one thing while
+  protecting everything else. Here, the current location is intentionally public, including the
+  exact coordinates. The database, write endpoint, and unnecessary fields remain behind the
+  appropriate boundaries. That is a deliberate visibility model, not a claim that the project
+  preserves the user's location privacy.
 </p>
 
 <h2>And why did the user want this?</h2>
