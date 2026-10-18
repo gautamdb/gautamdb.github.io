@@ -13,3 +13,11 @@ When: Monday, October 20, 2025
 Between 07:20 to 07:45 German time (CEST)
 
 Where: Ruhr-Uni Bochum, in my office IB 3/75
+
+# Invitation 3
+Meet me!
+
+When: Sunday, October 18, 2026
+During the time 17:40-18:15 German time (CEST)
+
+Where: Haferkater at the main train station in Münster
