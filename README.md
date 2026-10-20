@@ -8,6 +8,8 @@ Phone: (Germany) 1782891769
 
 Telegram/Github: gautamdb
 
+[bad quality profile pic](images/stre.png)
+
 ## Academic stuff
 
 [Academic business card](https://sites.google.com/view/gautam-banhatti-work)
