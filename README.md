@@ -18,7 +18,7 @@ As a student, I did some programming while working in student assistant jobs at 
 
 Here my [first Bachelor's thesis](https://www.mathi.uni-heidelberg.de/~geodyn/teaching/Theses/BA_2016_Gautam%20Dilip%20Banhatti%20(Albers).pdf), my [second Bachelor's thesis](docs/bachelorarbeitPhysik_reduced_filesize.pdf) and my [Master's thesis](https://www.mathi.uni-heidelberg.de/~geodyn/teaching/Theses/MA_2020_Gautam%20Dilip%20Banhatti%20(Albers).pdf).
 
-I commit to the [membership commitment](https://www.ahmath.org/members) of the association of human mathematics, including the third optional clause, as of Oct 11, 2026. Basically, this means to not support AI tech companies, not publishing AI generated stuff, and not use AI tools in research. The reason I decide to not join the association of human mathematics is that I don't yet consider myself a professional mathematician before I have graduated.
+I commit to the [membership commitment](https://www.ahmath.org/members) of the association of human mathematics, including the third optional clause, as of Oct 11, 2026. (Will become a member as soon as I consider myself a professional mathematician.)
 
 ## Personal stuff
 
