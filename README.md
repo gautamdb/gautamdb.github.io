@@ -19,7 +19,7 @@ Publications/preprints from student assistant jobs:\
 
 Theses: [B.Sc. math](https://www.mathi.uni-heidelberg.de/~geodyn/teaching/Theses/BA_2016_Gautam%20Dilip%20Banhatti%20(Albers).pdf), [B.Sc. physics](docs/bachelorarbeitPhysik_reduced_filesize.pdf), [M.Sc. math](https://www.mathi.uni-heidelberg.de/~geodyn/teaching/Theses/MA_2020_Gautam%20Dilip%20Banhatti%20(Albers).pdf).
 
-I commit to [this commitment](https://www.ahmath.org/members) including the third optional clause, as of Oct 11, 2026.
+I commit to [these three commitments](https://www.ahmath.org/members) as of Oct 11, 2026. (Not a member of AHM, though.)
 
 ## Personal stuff
 
