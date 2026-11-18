@@ -2,7 +2,8 @@
 
 ## Contact info
 
-gautam att posteo de | phone: (Germany) 1782891769\
+gautam att posteo de\
+phone: (Germany) 1782891769\
 Telegram/Github: gautamdb
 
 [bad quality profile pic](images/stre.png)
@@ -11,7 +12,7 @@ Telegram/Github: gautamdb
 
 [Academic business card](https://sites.google.com/view/gautam-banhatti-work) | [ORCID](https://orcid.org/0000-0002-8668-310X)
 
-Publications/preprints from student assistant jobs:
+Publications/preprints from student assistant jobs:\
 [human interface for querying SPARQL endpoints](https://ris.utwente.nl/ws/portalfiles/portal/30050558/Scheider2017exploratory.pdf)\
 [pictures of mathematical billiards in an ellipse and perturbations thereof](https://arxiv.org/abs/1702.06309)\
 [symplectic billiards in some polygons](https://jexpmath.org/index.php/jem/article/view/Vol-1Issue-1Paper-1/Vol-1Issue-1Paper-1)
