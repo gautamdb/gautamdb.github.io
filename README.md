@@ -14,19 +14,19 @@ Telegram/Github: gautamdb
 
 [Academic business card](https://sites.google.com/view/gautam-banhatti-work)
 
-I can also be found on [ORCID](https://orcid.org/0000-0002-8668-310X).
+[ORCID](https://orcid.org/0000-0002-8668-310X)
 
-As a student, I did some programming while working in student assistant jobs at the university. Some of these jobs produced academic publications or preprints: [This](https://ris.utwente.nl/ws/portalfiles/portal/30050558/Scheider2017exploratory.pdf) is from my work at the institute for geoinformatics in Münster, [this](https://arxiv.org/abs/1702.06309) is from my work at the institute for applied mathematics in Münster, and [this](https://jexpmath.org/index.php/jem/article/view/Vol-1Issue-1Paper-1/Vol-1Issue-1Paper-1) is from my work at the visual computing group in Heidelberg.
+Publications/preprints from student assistant jobs: [human interface for querying SPARQL endpoints](https://ris.utwente.nl/ws/portalfiles/portal/30050558/Scheider2017exploratory.pdf), [pictures of mathematical billiards in an ellipse and perturbations thereof](https://arxiv.org/abs/1702.06309), [symplectic billiards in some polygons](https://jexpmath.org/index.php/jem/article/view/Vol-1Issue-1Paper-1/Vol-1Issue-1Paper-1).
 
-Here my [first Bachelor's thesis](https://www.mathi.uni-heidelberg.de/~geodyn/teaching/Theses/BA_2016_Gautam%20Dilip%20Banhatti%20(Albers).pdf), my [second Bachelor's thesis](docs/bachelorarbeitPhysik_reduced_filesize.pdf) and my [Master's thesis](https://www.mathi.uni-heidelberg.de/~geodyn/teaching/Theses/MA_2020_Gautam%20Dilip%20Banhatti%20(Albers).pdf).
+Theses: [B.Sc. math](https://www.mathi.uni-heidelberg.de/~geodyn/teaching/Theses/BA_2016_Gautam%20Dilip%20Banhatti%20(Albers).pdf), [B.Sc. physics](docs/bachelorarbeitPhysik_reduced_filesize.pdf), [M.Sc. math](https://www.mathi.uni-heidelberg.de/~geodyn/teaching/Theses/MA_2020_Gautam%20Dilip%20Banhatti%20(Albers).pdf).
 
-I commit to the [membership commitment](https://www.ahmath.org/members) of the association of human mathematics, including the third optional clause, as of Oct 11, 2026. (Will become a member as soon as I consider myself a professional mathematician.)
+I commit to [this commitment](https://www.ahmath.org/members) including the third optional clause, as of Oct 11, 2026.
 
 ## Personal stuff
 
-Here is my [public CV](docs/publicCV.pdf).
+[public CV](docs/publicCV.pdf)
 
-I've also got a [blog](blog) which I will update whenever I've got anything worth saying.
+[blog](blog)
 
 [Kalender](timekeeping/Kalender_Jahr_5.pdf)
 
@@ -35,9 +35,9 @@ I've also got a [blog](blog) which I will update whenever I've got anything wort
 
 [Math3matik](math3matik)
 
-Stuff done with AI:
+Done with AI:
 
-[Norms on finite-dimensional real or complex vector spaces are equivalent](docs/norms.pdf) - formulated and typeset with Claude (Sonnet 4.6).
+[something about norms](docs/norms.pdf) - formulated and typeset with Claude (Sonnet 4.6).
 
 [The time of the day](timekeeping/watchface.html) - created with the help of ChatGPT (GPT-5.6 Luna), using [SunCalc](https://github.com/mourner/suncalc) by Volodymyr Agafonkin ([license](https://github.com/mourner/suncalc?tab=BSD-2-Clause-1-ov-file)).
 
