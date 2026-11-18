@@ -2,10 +2,7 @@
 
 ## Contact info
 
-Email: gautam att posteo de
-
-Phone: (Germany) 1782891769
-
+gautam att posteo de | phone: (Germany) 1782891769\
 Telegram/Github: gautamdb
 
 [bad quality profile pic](images/stre.png)
@@ -32,7 +29,7 @@ I commit to [this commitment](https://www.ahmath.org/members) including the thir
 [Momos](images/IMG_2636.jpeg)\
 [Math3matik](math3matik)
 
-Done with AI:
+Done with AI:\
 [something about norms](docs/norms.pdf) - formulated and typeset with Claude (Sonnet 4.6).\
 [The time of the day](timekeeping/watchface.html) - created with the help of ChatGPT (GPT-5.6 Luna), using [SunCalc](https://github.com/mourner/suncalc) by Volodymyr Agafonkin ([license](https://github.com/mourner/suncalc?tab=BSD-2-Clause-1-ov-file)).\
-[The location of my phone](location/location.html) - engineered and implemented by ChatGPT (GPT-5.6 Luna) with gentle steering by me. Uses [HookTrace](https://apps.apple.com/us/app/hooktrace/id6761300724), [Cloudflare](https://www.cloudflare.com) and [GeoNames](https://www.geonames.org/about.html). [How it works.](location/explanation.html)\
+[The location of my phone](location/location.html) - engineered and implemented by ChatGPT (GPT-5.6 Luna) with gentle steering by me. Uses [HookTrace](https://apps.apple.com/us/app/hooktrace/id6761300724), [Cloudflare](https://www.cloudflare.com) and [GeoNames](https://www.geonames.org/about.html). [How it works.](location/explanation.html)
