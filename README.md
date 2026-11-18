@@ -2,9 +2,9 @@
 
 ## Contact info
 
-gautam att posteo de\
-phone: (Germany) 1782891769\
-Telegram/Github: gautamdb
+gautam posteo de\
+(DE) 01782891769\
+telegram: gautamdb
 
 [bad quality profile pic](images/stre.png)
 
