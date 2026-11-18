@@ -4,9 +4,8 @@
 
 gautam posteo de\
 (DE) 01782891769\
-telegram: gautamdb
-
-[bad quality profile pic](images/stre.png)
+telegram: gautamdb\
+[how I look](images/stre.png)
 
 ## Academic stuff
 
